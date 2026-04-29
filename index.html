@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Shahriyor's School | Ingliz tili va IT o'quv markazi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<div class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+  <h1 id="typewriter"></h1>
+  <p>Shahriyor's School — zamonaviy ta’lim markazi</p>
+
+ <button onclick="goSection('courses')">Kurslarni ko‘rish</button>
+</div>
+</div>
+
+<header class="main-header">
+<h2>Shahriyor's School</h2>
+<button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+<nav>
+<button onclick="goSection('home')">Bosh sahifa</button>
+<button onclick="goSection('courses')">Kurslar</button>
+<button onclick="goSection('teachers')">Ustozlar</button>
+<button onclick="goSection('schedule')">Dars jadvali</button>
+<button onclick="goSection('results')">Erishilgan natijalar</button>
+<button onclick="goSection('contact')">Aloqa</button>
+</nav>
+</header>
+<!-- HOME -->
+<section id="home" class="active">
+
+<h2>Dars jarayonidan lavhalar</h2>
+
+<div class="gallery">
+  <img src="images!!/lopo1.jpg.jpg" onclick="openImage(this)">
+  <img src="images!!/lopo2.jpg.jpg" onclick="openImage(this)">
+  <img src="images!!/lopo3.jpg.jpg" onclick="openImage(this)">
+  <img src="images!!/lopo4.jpg.jpg" onclick="openImage(this)">
+  <img src="images!!/lopo5.jpg.jpg" onclick="openImage(this)">
+  <img src="images!!/lopo6.jpg.jpg" onclick="openImage(this)">
+  <img src="images!!/lopo7.jpg.jpg" onclick="openImage(this)">
+  <img src="images!!/lopo8.jpg.jpg" onclick="openImage(this)">
+</div>
+
+</section>
+<!-- Kattalashtirish oynasi -->
+<div id="lightbox" onclick="outsideClose(event)">
+  <span class="prev" onclick="prevImage(event)">&#10094;</span>
+  <img id="lightbox-img">
+  <span class="next" onclick="nextImage(event)">&#10095;</span>
+  <span class="close-btn" onclick="closeImage()">✖</span>
+</div>
+
+<!-- TEACHERS -->
+<section id="teachers">
+<h2>Ustozlar</h2>
+
+<div class="teachers-grid">
+
+  <div class="teacher-box scroll-anim">
+    <img src="images!!/Shahriyor Ruzimatov.jpg" alt="">
+    <h3>Shahriyor Ruzimatov</h3>
+    <p>18 yillik tajribaga ega malakali ustoz. Shahriyor's School asoschisi</p>
+    <p>Pre-Intermediate, Intermediate, Upper-Intermediate, IELTS, TOEFL</p>
+  </div>
+
+  <div class="teacher-box">
+    <img src="images!!/Ardasher Azizmatov.jpg" alt="">
+    <h3>Ardasher Azizmatov</h3>
+    <p>English Support Teacher</p>
+    <p>Beginner, Elementary, Pre-Intermediate</p>
+  </div>
+
+  <div class="teacher-box">
+    <img src="images!!/Izatilla Raxmadjanov.jpg" alt="">
+    <h3>Izatilla Raxmadjanov</h3>
+    <p>IT Teacher. Dasturlashni 0 dan o'rganishingizga yordam beradi.</p>
+    <p>Frontend, Backend, Python, CSS, JS, HTML</p>
+  </div>
+
+  <div class="teacher-box">
+    <img src="images!!/Husanova Sevara.jpg" alt="">
+    <h3>Husanova Sevara</h3>
+    <p>English Teacher. 5+ yillik tajribaga ega malakali ustoz.</p>
+    <p>Beginner, Elementary, Pre-Intermediate</p>
+  </div>
+
+  <div class="teacher-box">
+    <img src="images!!/Nihola Mamayusupova.jpg" alt="">
+    <h3>Nihola Mamayusupova</h3>
+    <p>English Teacher. C1 darajaga ega tajribali ustozlardan biri.</p>
+    <p>Beginner, Elementary, Pre-Intermediate</p>
+  </div>
+
+</div> 
+
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+
+<h2>Kurslar</h2>
+
+<div id="course-home">
+  <div class="course-select">
+    <button class="course-main" onclick="showEnglish()">📘 Ingliz tili</button>
+    <button class="course-main" onclick="showIT()">💻 IT</button>
+  </div>
+</div>
+
+<div id="english" class="hidden english-list">
+  <button class="back-btn" onclick="backCourses()">⬅ Ortga</button>
+
+  <button onclick="openModal('Beginner', 'Ardasher Azizmatov tomonidan olib boriladi', '300 ming som')">Beginner</button>
+  <button onclick="openModal('Elementary', 'Ardasher Azizmatov tomonidan olib boriladi', '300 ming som')">Elementary</button>
+  <button onclick="openModal('Pre-Intermediate', 'Shahriyor Ruzimatov tomonidan olib boriladi', '350 ming som')">Pre-Intermediate</button>
+  <button onclick="openModal('Intermediate', 'Shahriyor Ruzimatov tomonidan olib boriladi', '350 ming som')">Intermediate</button>
+  <button onclick="openModal('Upper-Intermediate', 'Shahriyor Ruzimatov tomonidan olib boriladi', '350 ming som')">Upper-Intermediate</button>
+  <button onclick="openModal('IELTS', 'Shahriyor Ruzimatov tomonidan olib boriladi', '500 ming som')">IELTS</button>
+  <button onclick="openModal('TOEFL', 'Shahriyor Ruzimatov tomonidan olib boriladi', '500 ming som')">TOEFL</button>
+</div>
+
+<div id="it" class="hidden center">
+  <button class="back-btn" onclick="backCourses()">⬅ Ortga</button>
+  <p>Izatilla Raxmadjanov tomonidan olib boriladi</p>
+  <p>Frontend, Backend, Python, CSS, JS, HTML</p>
+  <p>Kurs narxi: 500 ming so'm</p>
+  <button class="yellow" onclick="openModal('IT kursi', 'Izatilla Raxmadjanov tomonidan olib boriladi', '500 ming som')">Kursga yozilish</button>
+</div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+<h2>Dars jadvali</h2>
+<p>Dushanba - Shanba</p>
+<p>15:00-16:30 | 16:30-18:00 | 18:00-19:30</p>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+<h2>O'quvchilarimiz natijalari</h2>
+
+<div class="results-gallery">
+  <img src="images!!/cefr1.jpg" onclick="openImage(this)">
+  <img src="images!!/cefr2.jpg" onclick="openImage(this)">
+  <img src="images!!/cefr3.jpg" onclick="openImage(this)">
+  <img src="images!!/cefr4.jpg" onclick="openImage(this)">
+  <img src="images!!/cefr5.jpg" onclick="openImage(this)">
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Aloqa</h2>
+<div class="card">📞 +998936153522</div>
+<div class="card">📩 @Shahriyor_teach</div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+<div class="modal-content">
+
+<h3 id="title"></h3>
+
+<input id="ism" placeholder="Ism">
+<input id="fam" placeholder="Familya">
+<input id="tel" placeholder="Telefon">
+
+<select id="teacherSelect" class="hidden">
+<option value="">Ustoz tanlang</option>
+</select>
+
+<select id="day">
+<option value="">Kun tanlang</option>
+<option>Dushanba</option>
+<option>Seshanba</option>
+<option>Chorshanba</option>
+<option>Payshanba</option>
+<option>Juma</option>
+<option>Shanba</option>
+</select>
+
+<select id="time">
+<option value="">Vaqt tanlang</option>
+<option>15:00-16:30</option>
+<option>16:30-18:00</option>
+<option>18:00-19:30</option>
+</select>
+
+<button class="yellow" onclick="send()">Yuborish</button>
+<button onclick="closeModal()">Yopish</button>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
