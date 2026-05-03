@@ -93,6 +93,7 @@ function closeModal(){
 
 // ===== FORM YUBORISH =====
 async function send(){
+ async function send(){
   let ism = document.getElementById("ism").value;
   let fam = document.getElementById("fam").value;
   let tel = document.getElementById("tel").value;
@@ -105,16 +106,44 @@ async function send(){
     return;
   }
 
-  alert("So'rovingiz yuborildi!");
+  let data = {
+    Ism: ism,
+    Familya: fam,
+    Telefon: tel,
+    Kurs: selectedCourse,
+    Ustoz: ustoz || "Tanlanmagan",
+    Kun: day,
+    Vaqt: time,
+    _subject: "Yangi kursga yozilish",
+    _captcha: "false",
+    _template: "table"
+  };
 
-  document.getElementById("ism").value = "";
-  document.getElementById("fam").value = "";
-  document.getElementById("tel").value = "";
-  document.getElementById("day").value = "";
-  document.getElementById("time").value = "";
-  document.getElementById("teacherSelect").value = "";
+  fetch("https://formsubmit.co/ajax/raxmadjanovi@gmail.com", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+      alert("So'rovingiz muvaffaqiyatli yuborildi!");
 
-  closeModal();
+      document.getElementById("ism").value = "";
+      document.getElementById("fam").value = "";
+      document.getElementById("tel").value = "";
+      document.getElementById("day").value = "";
+      document.getElementById("time").value = "";
+      document.getElementById("teacherSelect").value = "";
+
+      closeModal();
+  })
+  .catch(error => {
+      alert("Internetda xatolik. Qayta urinib ko'ring.");
+  });
+}
 }
 
 // ===== LIGHTBOX GALLERY =====
