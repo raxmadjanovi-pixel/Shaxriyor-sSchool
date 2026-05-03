@@ -698,3 +698,37 @@ text-shadow:0 0 10px rgba(244,196,48,0.7);
 nav button.active-nav::after{
 width:100%;
 }
+
+.fact-box, .quiz-box{
+  background:#112233;
+  padding:30px;
+  border-radius:18px;
+  max-width:700px;
+  margin:auto;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.fact-box p, .quiz-box p{
+  font-size:20px;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+#answers button{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:#1b3550;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+#answers button:hover{
+  background:#f4c430;
+  color:black;
+}

@@ -29,6 +29,8 @@
 <button onclick="goSection('teachers')">Ustozlar</button>
 <button onclick="goSection('schedule')">Dars jadvali</button>
 <button onclick="goSection('results')">Erishilgan natijalar</button>
+<button onclick="goSection('facts')">Tech Facts</button>
+<button onclick="goSection('quiz')">Quiz</button>
 <button onclick="goSection('contact')">Aloqa</button>
 </nav>
 </header>
@@ -154,6 +156,30 @@
   <img src="images!!/cefr5.jpg" onclick="openImage(this)">
 </div>
 
+</section>
+
+<!-- DAILY TECH FACTS -->
+<section id="facts">
+  <h2>💡 Daily Tech Fact</h2>
+
+  <div class="fact-box">
+    <p id="factText">Loading fact...</p>
+    <button class="yellow" onclick="newFact()">New Fact</button>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <h2>🧠 IT Quiz</h2>
+
+  <div class="quiz-box">
+    <p id="question">Savol yuklanmoqda...</p>
+
+    <div id="answers"></div>
+
+    <p id="result"></p>
+    <button class="yellow" onclick="loadQuiz()">Next Question</button>
+  </div>
 </section>
 
 <!-- CONTACT -->

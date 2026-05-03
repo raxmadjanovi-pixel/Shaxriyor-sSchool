@@ -234,3 +234,65 @@ window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", () => {
   document.querySelectorAll("nav button")[0].classList.add("active-nav");
 });
+
+// DAILY TECH FACTS
+const facts = [
+  "JavaScript was created in only 10 days.",
+  "The first computer bug was an actual insect.",
+  "Python is named after Monty Python.",
+  "HTML is not a programming language.",
+  "The first website is still online today."
+];
+
+function newFact(){
+  let random = Math.floor(Math.random() * facts.length);
+  document.getElementById("factText").innerText = facts[random];
+}
+
+newFact();
+
+
+// QUIZ
+const quizData = [
+  {
+    question: "HTML nima?",
+    answers: ["Programming language", "Markup language", "Database"],
+    correct: "Markup language"
+  },
+  {
+    question: "CSS nima uchun ishlatiladi?",
+    answers: ["Design", "Backend", "Database"],
+    correct: "Design"
+  },
+  {
+    question: "JavaScript nima qiladi?",
+    answers: ["Interactivity", "Cooking", "Photoshop"],
+    correct: "Interactivity"
+  }
+];
+
+function loadQuiz(){
+  let q = quizData[Math.floor(Math.random() * quizData.length)];
+
+  document.getElementById("question").innerText = q.question;
+
+  let answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+
+  q.answers.forEach(answer=>{
+    let btn = document.createElement("button");
+    btn.innerText = answer;
+
+    btn.onclick = function(){
+      if(answer === q.correct){
+        document.getElementById("result").innerText = "✅ Correct!";
+      }else{
+        document.getElementById("result").innerText = "❌ Wrong!";
+      }
+    };
+
+    answersDiv.appendChild(btn);
+  });
+}
+
+loadQuiz();
