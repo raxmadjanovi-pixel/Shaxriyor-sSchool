@@ -22,6 +22,7 @@ function goSection(id){
   if(id === "schedule") document.querySelectorAll("nav button")[3].classList.add("active-nav");
   if(id === "results") document.querySelectorAll("nav button")[4].classList.add("active-nav");
   if(id === "contact") document.querySelectorAll("nav button")[5].classList.add("active-nav");
+  if(id === "videos") document.querySelectorAll("nav button")[7].classList.add("active-nav");
 
   setTimeout(()=>{
     document.getElementById(id).scrollIntoView({
@@ -92,8 +93,8 @@ function closeModal(){
 }
 
 // ===== FORM YUBORISH =====
-async function send(){
- async function send(){
+function send(){
+
   let ism = document.getElementById("ism").value;
   let fam = document.getElementById("fam").value;
   let tel = document.getElementById("tel").value;
@@ -106,44 +107,39 @@ async function send(){
     return;
   }
 
-  let data = {
-    Ism: ism,
-    Familya: fam,
-    Telefon: tel,
-    Kurs: selectedCourse,
-    Ustoz: ustoz || "Tanlanmagan",
-    Kun: day,
-    Vaqt: time,
-    _subject: "Yangi kursga yozilish",
-    _captcha: "false",
-    _template: "table"
-  };
+  // TELEGRAM USERNAME
+  let username = "Shahriyor_teach";
 
-  fetch("https://formsubmit.co/ajax/raxmadjanovi@gmail.com", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => response.json())
-  .then(data => {
-      alert("So'rovingiz muvaffaqiyatli yuborildi!");
+  // XABAR
+  let message =
+`📚 Yangi kursga yozilish!
 
-      document.getElementById("ism").value = "";
-      document.getElementById("fam").value = "";
-      document.getElementById("tel").value = "";
-      document.getElementById("day").value = "";
-      document.getElementById("time").value = "";
-      document.getElementById("teacherSelect").value = "";
+👤 Ism: ${ism}
+👤 Familya: ${fam}
+📞 Telefon: ${tel}
 
-      closeModal();
-  })
-  .catch(error => {
-      alert("Internetda xatolik. Qayta urinib ko'ring.");
-  });
-}
+📘 Kurs: ${selectedCourse}
+👨‍🏫 Ustoz: ${ustoz || "Tanlanmagan"}
+
+📅 Kun: ${day}
+⏰ Vaqt: ${time}`;
+
+  // TELEGRAM LINK
+  let telegramUrl =
+`https://t.me/${username}?text=${encodeURIComponent(message)}`;
+
+  // TELEGRAMNI OCHISH
+  window.open(telegramUrl, "_blank");
+
+  // INPUTLARNI TOZALASH
+  document.getElementById("ism").value = "";
+  document.getElementById("fam").value = "";
+  document.getElementById("tel").value = "";
+  document.getElementById("day").value = "";
+  document.getElementById("time").value = "";
+  document.getElementById("teacherSelect").value = "";
+
+  closeModal();
 }
 
 // ===== LIGHTBOX GALLERY =====
