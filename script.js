@@ -119,7 +119,7 @@ function send(){
 📞 Telefon: ${tel}
 
 📘 Kurs: ${selectedCourse}
-👨‍🏫 Ustoz: ${ustoz || "Tanlanmagan"}
+👨‍🏫 Ustoz: ${ustoz || "Izatilla Raxmadjanov"}
 
 📅 Kun: ${day}
 ⏰ Vaqt: ${time}`;
