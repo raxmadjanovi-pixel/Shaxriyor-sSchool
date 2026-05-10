@@ -61,6 +61,7 @@ function backCourses(){
 // ===== MODAL =====
 function openModal(name, teacher, price){
   selectedCourse = name;
+  selectedTeacher = teacher.replace(" tomonidan olib boriladi", "");
 
   document.getElementById("modal").style.display = "flex";
 
@@ -119,7 +120,7 @@ function send(){
 📞 Telefon: ${tel}
 
 📘 Kurs: ${selectedCourse}
-👨‍🏫 Ustoz: ${ustoz || "Izatilla Raxmadjanov"}
+👨‍🏫 Ustoz: ${ustoz || selectedTeacher}
 
 📅 Kun: ${day}
 ⏰ Vaqt: ${time}`;
