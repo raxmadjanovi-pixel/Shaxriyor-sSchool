@@ -76,6 +76,7 @@ function openModal(name, teacher, price){
     teacherSelect.innerHTML += '<option>Ardasher Azizmatov</option>';
     teacherSelect.innerHTML += '<option>Husanova Sevara</option>';
     teacherSelect.innerHTML += '<option>Nihola Mamayusupova</option>';
+    teacherSelect.innerHTML += '<option>Shahriyor Ruzimatov</option>';
   }
   else if(name === "Pre-Intermediate"){
     teacherSelect.classList.remove("hidden");
