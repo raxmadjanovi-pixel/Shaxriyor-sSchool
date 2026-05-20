@@ -32,6 +32,7 @@
 <button onclick="goSection('results')">Erishilgan natijalar</button>
 <button onclick="goSection('facts')">Tech Facts</button>
 <button onclick="goSection('quiz')">Quiz</button>
+<button onclick="goSection('games')">🎮 Games</button>
 <button onclick="goSection('videos')">Videos</button>
 <button onclick="goSection('contact')">Aloqa</button>
 </nav>
@@ -202,6 +203,126 @@
   </div>
 
   </div>
+</section>
+
+<section id="games">
+
+<h2>🎮 Games Center</h2>
+
+<div id="game-home">
+
+<div class="course-select">
+
+<button class="course-main"
+onclick="showGame('wordgame')">
+
+🧩 Word Guess
+</button>
+
+<button class="course-main"
+onclick="showGame('typing')">
+
+⌨️ Typing Speed
+</button>
+
+<button class="course-main"
+onclick="showGame('memory')">
+
+🃏 Memory Card
+</button>
+
+<button class="course-main"
+onclick="showGame('battle')">
+
+⚔️ Quiz Battle
+</button>
+
+</div>
+
+</div>
+
+
+<div id="wordgame" class="hidden">
+
+<button class="back-btn"
+onclick="backGames()">
+⬅ Ortga
+</button>
+
+<h3>🧩 Word Guess</h3>
+
+<p id="wordHint">
+Harflarni toping
+</p>
+
+<h2 id="hiddenWord">
+_ _ _ _ _
+</h2>
+
+<input
+id="answer"
+placeholder="So'zni yozing">
+
+<button
+class="yellow"
+onclick="checkWord()">
+
+Tekshirish
+</button>
+
+<p id="score">
+Ball: 0
+</p>
+
+<p id="resultWord"></p>
+
+</div>
+
+
+<div id="typing" class="hidden">
+
+<button class="back-btn"
+onclick="backGames()">
+
+⬅ Ortga
+</button>
+
+<h3>⌨️ Typing Speed</h3>
+
+<p>Tez yozish o'yini shu yerda bo'ladi</p>
+
+</div>
+
+
+<div id="memory" class="hidden">
+
+<button class="back-btn"
+onclick="backGames()">
+
+⬅ Ortga
+</button>
+
+<h3>🃏 Memory Card</h3>
+
+<p>Memory o'yini shu yerda bo'ladi</p>
+
+</div>
+
+
+<div id="battle" class="hidden">
+
+<button class="back-btn"
+onclick="backGames()">
+
+⬅ Ortga
+</button>
+
+<h3>⚔️ Quiz Battle</h3>
+
+<p>Quiz battle shu yerda bo'ladi</p>
+
+</div>
+
 </section>
 
 <!-- CONTACT -->

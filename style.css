@@ -865,3 +865,19 @@ body{
   }
 
 }
+
+#games h3{
+color:#f4c430;
+text-align:center;
+margin-bottom:20px;
+}
+
+#games input{
+max-width:300px;
+display:block;
+margin:auto;
+}
+
+#games p{
+text-align:center;
+}

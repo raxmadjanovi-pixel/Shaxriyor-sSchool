@@ -16,14 +16,16 @@ function goSection(id){
     btn.classList.remove("active-nav");
   });
 
-  if(id === "home") document.querySelectorAll("nav button")[0].classList.add("active-nav");
-  if(id === "courses") document.querySelectorAll("nav button")[1].classList.add("active-nav");
-  if(id === "teachers") document.querySelectorAll("nav button")[2].classList.add("active-nav");
-  if(id === "schedule") document.querySelectorAll("nav button")[3].classList.add("active-nav");
-  if(id === "results") document.querySelectorAll("nav button")[4].classList.add("active-nav");
-  if(id === "contact") document.querySelectorAll("nav button")[5].classList.add("active-nav");
-  if(id === "videos") document.querySelectorAll("nav button")[7].classList.add("active-nav");
-
+if(id === "home") document.querySelectorAll("nav button")[0].classList.add("active-nav");
+if(id === "courses") document.querySelectorAll("nav button")[1].classList.add("active-nav");
+if(id === "teachers") document.querySelectorAll("nav button")[2].classList.add("active-nav");
+if(id === "schedule") document.querySelectorAll("nav button")[3].classList.add("active-nav");
+if(id === "results") document.querySelectorAll("nav button")[4].classList.add("active-nav");
+if(id === "facts") document.querySelectorAll("nav button")[5].classList.add("active-nav");
+if(id === "quiz") document.querySelectorAll("nav button")[6].classList.add("active-nav");
+if(id === "games") document.querySelectorAll("nav button")[7].classList.add("active-nav");
+if(id === "videos") document.querySelectorAll("nav button")[8].classList.add("active-nav");
+if(id === "contact") document.querySelectorAll("nav button")[9].classList.add("active-nav"); 
   setTimeout(()=>{
     document.getElementById(id).scrollIntoView({
       behavior:"smooth"
@@ -294,3 +296,124 @@ function loadQuiz(){
 }
 
 loadQuiz();
+
+function showGame(gameId){
+
+document.getElementById(
+"game-home"
+).classList.add("hidden");
+
+document.querySelectorAll(
+"#games > div"
+).forEach(div=>{
+
+if(div.id!=="game-home"){
+div.classList.add("hidden");
+}
+
+});
+
+if(gameId==="wordgame"){
+startWordGame();
+}
+
+}
+
+
+function backGames(){
+
+document.getElementById(
+"game-home"
+).classList.remove("hidden");
+
+document.querySelectorAll(
+"#games > div"
+).forEach(div=>{
+
+if(div.id!=="game-home"){
+div.classList.add("hidden");
+}
+
+});
+
+}
+
+// ===== WORD GUESS GAME =====
+
+const gameWords = [
+"apple",
+"teacher",
+"computer",
+"school",
+"javascript",
+"student",
+"internet",
+"keyboard",
+"english",
+"python"
+];
+
+let currentWord = "";
+let gameScore = 0;
+
+function startWordGame(){
+
+currentWord =
+gameWords[
+Math.floor(
+Math.random()*gameWords.length
+)
+];
+
+let hidden =
+"_ ".repeat(currentWord.length);
+
+document.getElementById(
+"hiddenWord"
+).innerText = hidden;
+
+document.getElementById(
+"answer"
+).value="";
+
+document.getElementById(
+"resultWord"
+).innerText="";
+}
+
+function checkWord(){
+
+let answer =
+document.getElementById(
+"answer"
+).value.toLowerCase();
+
+if(answer===currentWord){
+
+gameScore++;
+
+document.getElementById(
+"resultWord"
+).innerText=
+"✅ To'g'ri topdingiz!";
+
+document.getElementById(
+"score"
+).innerText=
+"Ball: "+gameScore;
+
+setTimeout(
+startWordGame,
+1000
+);
+
+}else{
+
+document.getElementById(
+"resultWord"
+).innerText=
+"❌ Noto'g'ri, qayta urinib ko'ring";
+
+}
+
+}
