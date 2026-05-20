@@ -313,12 +313,26 @@ div.classList.add("hidden");
 
 });
 
+document.getElementById(gameId)
+.classList.remove("hidden");
+
 if(gameId==="wordgame"){
 startWordGame();
 }
 
+if(gameId==="typing"){
+startTypingGame();
 }
 
+if(gameId==="memory"){
+startMemoryGame();
+}
+
+if(gameId==="battle"){
+startBattleGame();
+}
+
+}
 
 function backGames(){
 
@@ -413,6 +427,74 @@ document.getElementById(
 "resultWord"
 ).innerText=
 "❌ Noto'g'ri, qayta urinib ko'ring";
+
+}
+
+}
+
+// ===== TYPING SPEED GAME =====
+
+const typingWords = [
+"javascript",
+"computer",
+"internet",
+"school",
+"teacher",
+"english",
+"keyboard"
+];
+
+let currentTypingWord = "";
+
+function startTypingGame(){
+
+currentTypingWord =
+typingWords[
+Math.floor(
+Math.random()*typingWords.length
+)
+];
+
+document.getElementById(
+"typingWord"
+).innerText =
+currentTypingWord;
+
+document.getElementById(
+"typingInput"
+).value = "";
+
+document.getElementById(
+"typingResult"
+).innerText = "";
+
+}
+
+function checkTyping(){
+
+let userText =
+document.getElementById(
+"typingInput"
+).value.toLowerCase();
+
+if(userText === currentTypingWord){
+
+document.getElementById(
+"typingResult"
+).innerText =
+"✅ Juda tez va to'g'ri yozdingiz!";
+
+setTimeout(
+startTypingGame,
+1000
+);
+
+}else{
+
+document.getElementById(
+"typingResult"
+).innerText =
+"❌ Xato yozdingiz";
 
 }
 
