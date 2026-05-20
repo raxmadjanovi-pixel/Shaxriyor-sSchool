@@ -289,8 +289,8 @@ onclick="backGames()">
 
 <h3>⌨️ Typing Speed</h3>
 
-<p id="typingWord">
-javascript
+<p id="typingTimer">
+10
 </p>
 
 <input
@@ -318,10 +318,16 @@ onclick="backGames()">
 
 <h3>🃏 Memory Card</h3>
 
-<p>Memory o'yini shu yerda bo'ladi</p>
+<div id="memoryBoard"
+class="memory-board">
 
 </div>
 
+<p id="memoryResult"></p>
+
+</div>
+
+<div id="battle" class="hidden">
 
 <div id="battle" class="hidden">
 
@@ -333,7 +339,19 @@ onclick="backGames()">
 
 <h3>⚔️ Quiz Battle</h3>
 
-<p>Quiz battle shu yerda bo'ladi</p>
+<p id="battleQuestion">
+Savol yuklanmoqda...
+</p>
+
+<div id="battleAnswers">
+
+</div>
+
+<p id="battleScore">
+Ball: 0
+</p>
+
+<p id="battleResult"></p>
 
 </div>
 

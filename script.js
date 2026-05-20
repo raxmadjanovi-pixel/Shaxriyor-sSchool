@@ -379,6 +379,51 @@ Math.random()*gameWords.length
 )
 ];
 
+// SO'ZNI YASHIRISH
+
+let hiddenWord = "";
+
+for(let i=0; i<currentWord.length; i++){
+
+if(
+i===0 ||
+i===2 ||
+i===currentWord.length-1
+){
+
+hiddenWord +=
+currentWord[i] + " ";
+
+}else{
+
+hiddenWord += "_ ";
+
+}
+
+}
+
+document.getElementById(
+"hiddenWord"
+).innerText =
+hiddenWord;
+
+document.getElementById(
+"answer"
+).value="";
+
+document.getElementById(
+"resultWord"
+).innerText="";
+
+}
+
+currentWord =
+gameWords[
+Math.floor(
+Math.random()*gameWords.length
+)
+];
+
 let hidden =
 "_ ".repeat(currentWord.length);
 
@@ -393,9 +438,56 @@ document.getElementById(
 document.getElementById(
 "resultWord"
 ).innerText="";
-}
 
 function checkWord(){
+
+let answer =
+document.getElementById(
+"answer"
+).value.toLowerCase();
+
+let result =
+document.getElementById(
+"resultWord"
+);
+
+result.classList.remove(
+"pop",
+"shake"
+);
+
+// animatsiyani qayta ishga tushirish
+void result.offsetWidth;
+
+if(answer===currentWord){
+
+gameScore++;
+
+result.innerText =
+"✅ To'g'ri topdingiz!";
+
+result.classList.add("pop");
+
+document.getElementById(
+"score"
+).innerText =
+"Ball: "+gameScore;
+
+setTimeout(
+startWordGame,
+1000
+);
+
+}else{
+
+result.innerText =
+"❌ Noto'g'ri, qayta urinib ko'ring!";
+
+result.classList.add("shake");
+
+}
+
+}
 
 let answer =
 document.getElementById(
@@ -430,7 +522,6 @@ document.getElementById(
 
 }
 
-}
 
 // ===== TYPING SPEED GAME =====
 
@@ -446,7 +537,51 @@ const typingWords = [
 
 let currentTypingWord = "";
 
+let typingTime = 10;
+let typingInterval;
+
 function startTypingGame(){
+
+clearInterval(
+typingInterval
+);
+
+typingTime = 10;
+
+document.getElementById(
+"typingTimer"
+).innerText =
+typingTime;
+
+typingInterval =
+setInterval(()=>{
+
+typingTime--;
+
+document.getElementById(
+"typingTimer"
+).innerText =
+typingTime;
+
+if(typingTime<=0){
+
+clearInterval(
+typingInterval
+);
+
+document.getElementById(
+"typingResult"
+).innerText =
+"⏰ Vaqt tugadi!";
+
+setTimeout(
+startTypingGame,
+1500
+);
+
+}
+
+},1000);
 
 currentTypingWord =
 typingWords[
@@ -470,7 +605,80 @@ document.getElementById(
 
 }
 
+currentTypingWord =
+typingWords[
+Math.floor(
+Math.random()*typingWords.length
+)
+];
+
+document.getElementById(
+"typingWord"
+).innerText =
+currentTypingWord;
+
+document.getElementById(
+"typingInput"
+).value = "";
+
+document.getElementById(
+"typingResult"
+).innerText = "";
+
+
 function checkTyping(){
+
+let userText =
+document.getElementById(
+"typingInput"
+).value.toLowerCase();
+
+if(userText === currentTypingWord){
+
+clearInterval(
+typingInterval
+);
+
+if(typingTime >= 5){
+
+document.getElementById(
+"typingResult"
+).innerText =
+"🚀 Juda tez va to'g'ri yozdingiz!";
+
+}
+else if(typingTime >= 3){
+
+document.getElementById(
+"typingResult"
+).innerText =
+"⚡ Tez va to'g'ri yozdingiz!";
+
+}
+else{
+
+document.getElementById(
+"typingResult"
+).innerText =
+"🐢 Sekin yozdingiz, keyingisini urinib ko'ring!";
+
+}
+
+setTimeout(
+startTypingGame,
+1500
+);
+
+}else{
+
+document.getElementById(
+"typingResult"
+).innerText =
+"❌ Xato yozdingiz!";
+
+}
+
+}
 
 let userText =
 document.getElementById(
@@ -497,5 +705,296 @@ document.getElementById(
 "❌ Xato yozdingiz";
 
 }
+
+
+// ===== MEMORY GAME =====
+
+const memoryIcons = [
+"🍎",
+"🍎",
+
+"💻",
+"💻",
+
+"📚",
+"📚",
+
+"🎮",
+"🎮",
+
+"🧠",
+"🧠",
+
+"⌨️",
+"⌨️",
+
+"🌎",
+"🌎",
+
+"🚀",
+"🚀"
+];
+
+let firstCard = null;
+let secondCard = null;
+let lockBoard = false;
+
+function startMemoryGame(){
+
+let board =
+document.getElementById(
+"memoryBoard"
+);
+
+board.innerHTML = "";
+
+document.getElementById(
+"memoryResult"
+).innerText = "";
+
+let shuffled =
+memoryIcons.sort(
+()=>Math.random()-0.5
+);
+
+shuffled.forEach(icon=>{
+
+let card =
+document.createElement("div");
+
+card.classList.add(
+"memory-card"
+);
+
+card.dataset.icon = icon;
+
+card.innerText = icon;
+
+card.onclick = function(){
+
+flipCard(card);
+
+};
+
+board.appendChild(card);
+
+});
+
+}
+
+function flipCard(card){
+
+if(lockBoard) return;
+
+if(card.classList.contains("open"))
+return;
+
+card.classList.add("open");
+
+if(!firstCard){
+
+firstCard = card;
+return;
+
+}
+
+secondCard = card;
+
+lockBoard = true;
+
+if(
+firstCard.dataset.icon ===
+secondCard.dataset.icon
+){
+
+firstCard.classList.add("done");
+secondCard.classList.add("done");
+
+resetMemory();
+
+checkMemoryWin();
+
+}else{
+
+setTimeout(()=>{
+
+firstCard.classList.remove(
+"open"
+);
+
+secondCard.classList.remove(
+"open"
+);
+
+resetMemory();
+
+},1000);
+
+}
+
+}
+
+function resetMemory(){
+
+firstCard = null;
+secondCard = null;
+lockBoard = false;
+
+}
+
+function checkMemoryWin(){
+
+let doneCards =
+document.querySelectorAll(
+".memory-card.done"
+);
+
+if(doneCards.length === 16){
+
+document.getElementById(
+"memoryResult"
+).innerText =
+"🏆 Siz g'alaba qozondingiz!";
+
+}
+
+}
+
+// ===== QUIZ BATTLE GAME =====
+
+const battleQuestions = [
+
+{
+question:
+"HTML nima?",
+
+answers:[
+"Programming language",
+"Markup language",
+"Database"
+],
+
+correct:
+"Markup language"
+},
+
+{
+question:
+"CSS nima qiladi?",
+
+answers:[
+"Design",
+"Cooking",
+"Hacking"
+],
+
+correct:
+"Design"
+},
+
+{
+question:
+"JavaScript nima uchun ishlatiladi?",
+
+answers:[
+"Interactivity",
+"Photoshop",
+"Gaming console"
+],
+
+correct:
+"Interactivity"
+},
+
+{
+question:
+"Python qanday til?",
+
+answers:[
+"Programming language",
+"Browser",
+"Computer"
+],
+
+correct:
+"Programming language"
+}
+
+];
+
+let battleScore = 0;
+
+function startBattleGame(){
+
+loadBattleQuestion();
+
+}
+
+function loadBattleQuestion(){
+
+let q =
+battleQuestions[
+Math.floor(
+Math.random()*
+battleQuestions.length
+)
+];
+
+document.getElementById(
+"battleQuestion"
+).innerText =
+q.question;
+
+let answersDiv =
+document.getElementById(
+"battleAnswers"
+);
+
+answersDiv.innerHTML = "";
+
+q.answers.forEach(answer=>{
+
+let btn =
+document.createElement(
+"button"
+);
+
+btn.innerText = answer;
+
+btn.onclick = function(){
+
+if(answer === q.correct){
+
+battleScore++;
+
+document.getElementById(
+"battleResult"
+).innerText =
+"✅ Correct!";
+
+}else{
+
+document.getElementById(
+"battleResult"
+).innerText =
+"❌ Wrong!";
+
+}
+
+document.getElementById(
+"battleScore"
+).innerText =
+"Ball: " + battleScore;
+
+setTimeout(
+loadBattleQuestion,
+1000
+);
+
+};
+
+answersDiv.appendChild(btn);
+
+});
 
 }
