@@ -905,7 +905,9 @@ document.getElementById(
 ).innerText =
 q.question;
 
-
+document.getElementById(
+"battleResult"
+).innerText = "";
 
 let answersDiv =
 document.getElementById(
