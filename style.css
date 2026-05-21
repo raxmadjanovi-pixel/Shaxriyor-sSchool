@@ -1068,3 +1068,11 @@ transform:scale(1);
 }
 
 }
+
+#typingWord{
+font-size:32px;
+color:#f4c430;
+text-align:center;
+margin-bottom:20px;
+letter-spacing:2px;
+}

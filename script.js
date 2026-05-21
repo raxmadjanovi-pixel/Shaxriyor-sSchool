@@ -489,40 +489,6 @@ result.classList.add("shake");
 
 }
 
-let answer =
-document.getElementById(
-"answer"
-).value.toLowerCase();
-
-if(answer===currentWord){
-
-gameScore++;
-
-document.getElementById(
-"resultWord"
-).innerText=
-"✅ To'g'ri topdingiz!";
-
-document.getElementById(
-"score"
-).innerText=
-"Ball: "+gameScore;
-
-setTimeout(
-startWordGame,
-1000
-);
-
-}else{
-
-document.getElementById(
-"resultWord"
-).innerText=
-"❌ Noto'g'ri, qayta urinib ko'ring";
-
-}
-
-
 // ===== TYPING SPEED GAME =====
 
 const typingWords = [
@@ -679,33 +645,6 @@ document.getElementById(
 }
 
 }
-
-let userText =
-document.getElementById(
-"typingInput"
-).value.toLowerCase();
-
-if(userText === currentTypingWord){
-
-document.getElementById(
-"typingResult"
-).innerText =
-"✅ Juda tez va to'g'ri yozdingiz!";
-
-setTimeout(
-startTypingGame,
-1000
-);
-
-}else{
-
-document.getElementById(
-"typingResult"
-).innerText =
-"❌ Xato yozdingiz";
-
-}
-
 
 // ===== MEMORY GAME =====
 
