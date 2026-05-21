@@ -276,6 +276,8 @@ function loadQuiz(){
 
   document.getElementById("question").innerText = q.question;
 
+  document.getElementById("result").innerText = "";
+
   let answersDiv = document.getElementById("answers");
   answersDiv.innerHTML = "";
 
@@ -283,13 +285,32 @@ function loadQuiz(){
     let btn = document.createElement("button");
     btn.innerText = answer;
 
-    btn.onclick = function(){
-      if(answer === q.correct){
-        document.getElementById("result").innerText = "✅ Correct!";
-      }else{
-        document.getElementById("result").innerText = "❌ Wrong!";
-      }
-    };
+  btn.onclick = function(){
+
+  let result =
+  document.getElementById("result");
+
+  result.classList.remove("shake","pop");
+
+  void result.offsetWidth;
+
+  if(answer === q.correct){
+
+    result.innerText =
+    "✅ Correct!";
+
+    result.classList.add("pop");
+
+  }else{
+
+    result.innerText =
+    "❌ Wrong!";
+
+    result.classList.add("shake");
+
+  }
+
+};
 
     answersDiv.appendChild(btn);
   });
@@ -884,6 +905,8 @@ document.getElementById(
 ).innerText =
 q.question;
 
+
+
 let answersDiv =
 document.getElementById(
 "battleAnswers"
@@ -902,23 +925,35 @@ btn.innerText = answer;
 
 btn.onclick = function(){
 
+let result =
+document.getElementById(
+"battleResult"
+);
+
+result.classList.remove(
+"shake",
+"pop"
+);
+
+void result.offsetWidth;
+
 if(answer === q.correct){
 
 battleScore++;
 
-document.getElementById(
-"battleResult"
-).innerText =
+result.innerText =
 "✅ Correct!";
+
+result.classList.add("pop");
 
 }else{
 
-document.getElementById(
-"battleResult"
-).innerText =
+result.innerText =
 "❌ Wrong!";
 
-}
+result.classList.add("shake");
+
+}  
 
 document.getElementById(
 "battleScore"
