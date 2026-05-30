@@ -23,15 +23,14 @@ if(id === "schedule") document.querySelectorAll("nav button")[3].classList.add("
 if(id === "results") document.querySelectorAll("nav button")[4].classList.add("active-nav");
 if(id === "facts") document.querySelectorAll("nav button")[5].classList.add("active-nav");
 if(id === "quiz") document.querySelectorAll("nav button")[6].classList.add("active-nav");
-if(id === "games") document.querySelectorAll("nav button")[7].classList.add("active-nav");
-if(id === "videos") document.querySelectorAll("nav button")[8].classList.add("active-nav");
-if(id === "contact") document.querySelectorAll("nav button")[9].classList.add("active-nav"); 
-  setTimeout(()=>{
+if(id === "certificate") document.querySelectorAll("nav button")[7].classList.add("active-nav");
+if(id === "games") document.querySelectorAll("nav button")[8].classList.add("active-nav");
+if(id === "videos") document.querySelectorAll("nav button")[9].classList.add("active-nav");
+if(id === "contact") document.querySelectorAll("nav button")[10].classList.add("active-nav");
     document.getElementById(id).scrollIntoView({
       behavior:"smooth"
     });
-  },100);
-}
+  }100
 
 // ===== MOBILE MENU =====
 function toggleMenu(){
