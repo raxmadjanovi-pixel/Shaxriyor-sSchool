@@ -1129,3 +1129,42 @@ rgba(244,196,48,0.4);
 
 }
 
+#beginner-info{
+
+max-width:700px;
+
+margin:auto;
+
+text-align:center;
+
+background:#112233;
+
+padding:30px;
+
+border-radius:20px;
+
+margin-top:30px;
+
+box-shadow:
+0 10px 25px
+rgba(0,0,0,0.3);
+
+}
+
+#beginner-info h3{
+
+color:#f4c430;
+
+font-size:30px;
+
+margin-bottom:20px;
+
+}
+
+#beginner-info p{
+
+font-size:20px;
+
+margin:12px 0;
+
+}
