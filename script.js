@@ -1,5 +1,5 @@
 let selectedCourse = "";
-
+let selectedTeacher = "";
 // ===== SECTION ALMASHTIRISH =====
 function goSection(id){
   closeModal();
@@ -30,7 +30,7 @@ if(id === "contact") document.querySelectorAll("nav button")[10].classList.add("
     document.getElementById(id).scrollIntoView({
       behavior:"smooth"
     });
-  }100
+  }
 
 // ===== MOBILE MENU =====
 function toggleMenu(){
@@ -437,20 +437,6 @@ document.getElementById(
 
 }
 
-currentWord =
-gameWords[
-Math.floor(
-Math.random()*gameWords.length
-)
-];
-
-let hidden =
-"_ ".repeat(currentWord.length);
-
-document.getElementById(
-"hiddenWord"
-).innerText = hidden;
-
 document.getElementById(
 "answer"
 ).value="";
@@ -590,27 +576,6 @@ document.getElementById(
 ).innerText = "";
 
 }
-
-currentTypingWord =
-typingWords[
-Math.floor(
-Math.random()*typingWords.length
-)
-];
-
-document.getElementById(
-"typingWord"
-).innerText =
-currentTypingWord;
-
-document.getElementById(
-"typingInput"
-).value = "";
-
-document.getElementById(
-"typingResult"
-).innerText = "";
-
 
 function checkTyping(){
 
