@@ -2581,13 +2581,14 @@ correct:["hour"]
 
 // RANDOM TANLASH
 
-function shuffleArray(array) {
+function shuffleArray(array){
 
     const arr = [...array];
 
-    for (let i = arr.length - 1; i > 0; i--) {
+    for(let i = arr.length - 1; i > 0; i--){
 
-        const j = Math.floor(
+        const j =
+        Math.floor(
             Math.random() * (i + 1)
         );
 
@@ -2612,20 +2613,11 @@ function generateExamQuestions() {
     shuffleArray(vocabularyQuestions)
     .slice(0,10);
 
-    return shuffleArray([
-        ...readingPart,
-        ...grammarPart,
-        ...vocabularyPart
-    ]);
-}
-
-function getRandomQuestions(array,count){
-
-const shuffled = [...array]
-.sort(()=>Math.random()-0.5);
-
-return shuffled.slice(0,count);
-
+  return shuffleArray([
+    ...readingPart,
+    ...grammarPart,
+    ...vocabularyPart
+]);
 }
 
 // TEST MA'LUMOTLARI
@@ -2633,7 +2625,8 @@ let beginnerQuestions = [];
 let currentQuestion = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
-
+let certificateLevel = "";
+let certificateScore = 0;
 // ===== CERTIFICATE CENTER =====
 
 function startPlacementTest(){
@@ -2893,53 +2886,59 @@ finishTest();
 function finishTest(){
 
 document
-.getElementById(
-"test-area"
-)
-.classList.add(
-"hidden"
-);
+.getElementById("test-area")
+.classList.add("hidden");
 
 const totalQuestions =
-correctAnswers +
-wrongAnswers;
+correctAnswers + wrongAnswers;
 
 const percentage =
 Math.round(
-(correctAnswers / totalQuestions)
-* 100
+(correctAnswers / totalQuestions) * 100
 );
 
-let status = "";
+let level = "";
 
-if(percentage >= 70){
+if(percentage <= 20){
 
-status =
-"PASS ✅";
+level = "A1";
 
-}else{
+}
+else if(percentage <= 40){
 
-status =
-"FAIL ❌";
+level = "A2";
+
+}
+else if(percentage <= 60){
+
+level = "B1";
+
+}
+else if(percentage <= 80){
+
+level = "B2";
+
+}
+else{
+
+level = "C1";
 
 }
 
+certificateLevel = level;
+certificateScore = percentage;
+
 alert(
 
-"Test Finished!\n\n" +
+"🎓 Test Finished!\n\n" +
 
-"Correct: " +
-correctAnswers +
+"Correct: " + correctAnswers +
 
-"\nWrong: " +
-wrongAnswers +
+"\nWrong: " + wrongAnswers +
 
-"\n\nScore: " +
-percentage +
-"%" +
+"\n\nScore: " + percentage + "%" +
 
-"\n\n" +
-status
+"\n\nLevel: " + level
 
 );
 
