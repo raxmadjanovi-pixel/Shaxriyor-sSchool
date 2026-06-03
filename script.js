@@ -2636,31 +2636,7 @@ let wrongAnswers = 0;
 
 // ===== CERTIFICATE CENTER =====
 
-function openBeginnerTest(){
-
-document.querySelector(
-".certificate-home"
-).classList.add("hidden");
-
-document.getElementById(
-"beginner-info"
-).classList.remove("hidden");
-
-}
-
-function closeBeginnerTest(){
-
-document.querySelector(
-".certificate-home"
-).classList.remove("hidden");
-
-document.getElementById(
-"beginner-info"
-).classList.add("hidden");
-
-}
-
-function startBeginnerTest(){
+function startPlacementTest(){
 
 beginnerQuestions =
 generateExamQuestions();
