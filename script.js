@@ -437,14 +437,6 @@ document.getElementById(
 
 }
 
-document.getElementById(
-"answer"
-).value="";
-
-document.getElementById(
-"resultWord"
-).innerText="";
-
 function checkWord(){
 
 let answer =

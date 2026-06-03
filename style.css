@@ -1225,3 +1225,17 @@ padding:30px;
 border-radius:20px;
 box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
+
+#certificate{
+display:block !important;
+}
+
+.certificate-home{
+display:block !important;
+}
+
+#certificate-box{
+display:block !important;
+border:2px solid red;
+padding:20px;
+}
